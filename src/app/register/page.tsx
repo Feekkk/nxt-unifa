@@ -52,8 +52,12 @@ export default function RegisterPage() {
         throw new Error(data.error || "Registration failed");
       }
 
-      // Success - redirect to login
-      router.push("/login?registered=true");
+      // Success - store user data and auto-login, then redirect to dashboard
+      localStorage.setItem("user", JSON.stringify(data.user));
+      
+      // Redirect to student dashboard
+      router.push("/student/dashboard");
+      router.refresh();
     } catch (err: any) {
       setError(err.message || "Registration failed. Please try again.");
     } finally {

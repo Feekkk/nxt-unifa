@@ -59,8 +59,8 @@ export default function LoginPage() {
       // In a real app, you'd use a session/token management system
       localStorage.setItem("user", JSON.stringify(data.user));
       
-      // Redirect to home page
-      router.push("/");
+      // Redirect to student dashboard
+      router.push("/student/dashboard");
       router.refresh();
     } catch (err: any) {
       setError(err.message || "Login failed. Please try again.");
