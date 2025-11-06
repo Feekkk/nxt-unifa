@@ -62,9 +62,26 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    
+    // Handle Prisma connection errors
+    if (error.code === "P1001" || error.code === "P1017") {
+      return NextResponse.json(
+        { error: "Database connection failed. Please contact support." },
+        { status: 500 }
+      );
+    }
 
+    // Return detailed error in development
+    const errorMessage = process.env.NODE_ENV === "development" 
+      ? error.message 
+      : "Registration failed. Please try again.";
+    
     return NextResponse.json(
-      { error: "Registration failed. Please try again." },
+      { 
+        error: errorMessage,
+        code: error.code,
+        details: process.env.NODE_ENV === "development" ? error.stack : undefined
+      },
       { status: 500 }
     );
   }
