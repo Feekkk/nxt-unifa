@@ -13,14 +13,6 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-# Allow production build for deployment
-!.next/standalone/
-!.next/static/
-/.next/cache/
-/out/
-
 # production
 /build
 
