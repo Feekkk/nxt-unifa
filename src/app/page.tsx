@@ -1,65 +1,123 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { StatsCard } from "@/components/StatsCard";
+import { FundingCard } from "@/components/FundingCard";
+import { ProgramCard } from "@/components/ProgramCard";
+import { Banknote, GraduationCap, HandCoins, Landmark, Library, Users } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-white text-zinc-900" id="home">
+      <Header />
+
+      <section className="relative isolate min-h-[70vh] overflow-hidden bg-gradient-to-br from-blue-600 via-teal-500 to-blue-700 text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(255,255,255,0.25),transparent)]" aria-hidden />
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-24 sm:px-6 md:grid-cols-2 lg:px-8 lg:py-28">
+          <div className="animate-[fadeIn_0.8s_ease_0s_both]">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Welcome to RCMP UniFa</h1>
+            <p className="mt-3 text-lg font-medium">UniKL Financial Aid System - Supporting Student Success</p>
+            <p className="mt-4 max-w-xl text-zinc-100">
+              Empowering UniKL students to achieve their academic dreams through comprehensive financial support.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="#applications" className="inline-flex items-center justify-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50">
+                Apply Now
+              </Link>
+              <Link href="#about" className="inline-flex items-center justify-center rounded-md border border-white/70 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                Learn More
+              </Link>
+            </div>
+          </div>
+          <div className="hidden md:block animate-[fadeIn_1s_ease_0.1s_both]">
+            <div className="mx-auto h-64 w-full max-w-md rounded-2xl bg-white/10 p-6 shadow-xl ring-1 ring-white/20 backdrop-blur">
+              <div className="text-sm font-medium">RCMP UniFa</div>
+              <p className="mt-2 text-sm text-white/80">
+                A streamlined platform for students to explore and apply for financial aid programs at UniKL RCMP.
+              </p>
+              <div className="mt-6 grid grid-cols-3 gap-3 text-center text-sm">
+                <div className="rounded-md bg-white/10 p-4">
+                  <div className="text-lg font-bold">5,000+</div>
+                  <div className="text-white/80">Students</div>
+                </div>
+                <div className="rounded-md bg-white/10 p-4">
+                  <div className="text-lg font-bold">RM 2.5M+</div>
+                  <div className="text-white/80">Funds</div>
+                </div>
+                <div className="rounded-md bg-white/10 p-4">
+                  <div className="text-lg font-bold">95%</div>
+                  <div className="text-white/80">Success</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </section>
+
+      <main>
+        <section id="about" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">History of Student Welfare Fund</h2>
+            <p className="mt-4 text-lg text-zinc-600">
+              The Student Welfare Fund (SWF) was established in [YEAR] to provide financial assistance to UniKL RCMP students facing economic hardships. Our mission is to ensure that no deserving student is unable to complete their education due to financial constraints.
+            </p>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
+            <div className="space-y-4">
+              <p className="text-zinc-700">
+                Since its inception, SWF has been a cornerstone of support, enabling thousands of students to continue their academic journey with dignity.
+              </p>
+              <ul className="list-disc space-y-2 pl-5 text-zinc-700">
+                <li>Mission: To support UniKL students through equitable financial assistance.</li>
+                <li>Milestones: Growing partnerships and increased fund availability year-on-year.</li>
+                <li>Impact: Improved retention and graduation rates across faculties.</li>
+              </ul>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <StatsCard label="Students Supported" value="5,000+" />
+              <StatsCard label="Funds Distributed" value="RM 2.5M+" />
+              <StatsCard label="Success Rate" value="95%" />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-zinc-50 py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">How Our Fund Raises Money</h2>
+              <p className="mt-4 text-zinc-600">
+                Our financial aid programs are supported by diverse funding sources working together to maximize impact.
+              </p>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <FundingCard icon={<Landmark className="h-5 w-5" />} title="University Budget Allocation" description="Annual allocations dedicated to student welfare and retention." />
+              <FundingCard icon={<Users className="h-5 w-5" />} title="Alumni Donations" description="Generous contributions from alumni to support future generations." />
+              <FundingCard icon={<HandCoins className="h-5 w-5" />} title="Corporate Sponsorships" description="Partnerships with industry to sponsor targeted aid." />
+              <FundingCard icon={<Banknote className="h-5 w-5" />} title="Government Grants" description="Grants and matching funds from government agencies." />
+              <FundingCard icon={<Library className="h-5 w-5" />} title="Fundraising Events" description="Community events and campaigns that drive contributions." />
+              <FundingCard icon={<GraduationCap className="h-5 w-5" />} title="Student Contributions" description="Optional contributions that strengthen the fund." />
+            </div>
+          </div>
+        </section>
+
+        <section id="applications" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Available Financial Aid Programs</h2>
+            <p className="mt-4 text-zinc-600">Explore programs tailored to support a variety of student needs.</p>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <ProgramCard icon={<HandCoins className="h-5 w-5" />} name="Emergency Financial Assistance" description="Immediate support for students facing urgent financial difficulties." />
+            <ProgramCard icon={<GraduationCap className="h-5 w-5" />} name="Tuition Fee Support" description="Partial coverage of tuition fees for eligible students." />
+            <ProgramCard icon={<Library className="h-5 w-5" />} name="Book & Study Material Grants" description="Grants to purchase textbooks and essential learning materials." />
+            <ProgramCard icon={<Users className="h-5 w-5" />} name="Living Allowance Support" description="Assistance with living costs for students in need." />
+            <ProgramCard icon={<Banknote className="h-5 w-5" />} name="Project/Research Funding" description="Funding for approved academic projects and research." />
+            <ProgramCard icon={<Landmark className="h-5 w-5" />} name="Technology & Equipment Aid" description="Support for laptops, software, and specialized equipment." />
+          </div>
+        </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
+
