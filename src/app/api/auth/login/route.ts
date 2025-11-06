@@ -39,10 +39,20 @@ export async function POST(request: NextRequest) {
       { message: "Login successful", user: userWithoutPassword },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error("Login error:", error);
+    
+    // Return detailed error in development
+    const errorMessage = process.env.NODE_ENV === "development" 
+      ? error.message 
+      : "Login failed. Please try again.";
+    
     return NextResponse.json(
-      { error: "Login failed. Please try again." },
+      { 
+        error: errorMessage,
+        code: error.code,
+        details: process.env.NODE_ENV === "development" ? error.stack : undefined
+      },
       { status: 500 }
     );
   }

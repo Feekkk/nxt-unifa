@@ -6,6 +6,11 @@ const dev = process.env.NODE_ENV !== 'production';
 const hostname = process.env.HOSTNAME || 'localhost';
 const port = parseInt(process.env.PORT || '3000', 10);
 
+// Debug: Log environment variables (remove after fixing)
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'Set' : 'NOT SET');
+console.log('PORT:', port);
+
 const app = next({ dev, hostname, port });
 const handle = app.getRequestHandler();
 
