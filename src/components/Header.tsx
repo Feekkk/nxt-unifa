@@ -11,7 +11,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
-          <Link href="#" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="h-8 w-8 rounded bg-blue-600" aria-hidden />
             <span className="text-base font-semibold tracking-tight text-zinc-900">
               RCMP UniFa
@@ -34,7 +34,13 @@ export function Header() {
           </a>
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <Link
+            href="/register"
+            className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:text-blue-700"
+          >
+            Register
+          </Link>
           <Link
             href="/login"
             className="inline-flex items-center justify-center rounded-md border border-blue-600 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-600 hover:text-white"
@@ -67,6 +73,13 @@ export function Header() {
             <a href="#contact" className="rounded-md px-2 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100" onClick={() => setIsOpen(false)}>
               Contact
             </a>
+            <Link
+              href="/register"
+              className="mt-2 inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:text-blue-700"
+              onClick={() => setIsOpen(false)}
+            >
+              Register
+            </Link>
             <Link
               href="/login"
               className="mt-2 inline-flex items-center justify-center rounded-md border border-blue-600 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-600 hover:text-white"
